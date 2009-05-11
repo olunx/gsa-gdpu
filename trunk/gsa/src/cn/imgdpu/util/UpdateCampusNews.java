@@ -2,7 +2,7 @@
  *@author fatkun , 创建时间:2009-4-27
  *
  *This:
-*/
+ */
 
 package cn.imgdpu.util;
 

@@ -49,9 +49,9 @@ public class BookStatusCompo extends Composite {
 		table.setLayoutData(fd_table);
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
-		
-		//设置swtItem的高度
-		table.addListener(SWT.MeasureItem,new cn.imgdpu.event.SwtTableItemHeightListener(table));
+
+		// 设置swtItem的高度
+		table.addListener(SWT.MeasureItem, new cn.imgdpu.event.SwtTableItemHeightListener(table));
 
 		userStatus = new CLabel(this, SWT.NONE);
 		userStatus.setImage(SWTResourceManager.getImage(BookStatusCompo.class, "/cn/imgdpu/ico/separator.gif"));
@@ -96,9 +96,9 @@ public class BookStatusCompo extends Composite {
 		label.setText("注意：逾期不还，需缴纳不少的罚金哦！O(∩_∩)O （此功能有时候仅校园网用户可用）");
 
 		//
-		
-		//双击事件
-		table.addListener(SWT.DefaultSelection, new Listener(){
+
+		// 双击事件
+		table.addListener(SWT.DefaultSelection, new Listener() {
 
 			@Override
 			public void handleEvent(Event arg0) {
@@ -106,22 +106,21 @@ public class BookStatusCompo extends Composite {
 				TableItem[] selectItem = table.getSelection();
 				String itemLink = selectItem[0].getText(1);
 				String itemBookName = selectItem[0].getText(2);
-				new BookInfoDialog(cn.imgdpu.GSAGUI.shell).open(itemLink,itemBookName);
+				new BookInfoDialog(cn.imgdpu.GSAGUI.shell).open(itemLink, itemBookName);
 			}
-			
+
 		});
 
 		setBookInfo();
 
 	}
-	
-	
+
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
 	}
-	
-	//显示到界面
+
+	// 显示到界面
 	public static void setBookInfo() {
 		// 判断课程表是否已经设置，0未设，1已设
 		int isAct = cn.imgdpu.util.XmlProcess.isAct("bookact");
@@ -154,6 +153,5 @@ public class BookStatusCompo extends Composite {
 		return split;
 
 	}
-	
 
 }

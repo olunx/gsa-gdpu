@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class GetWeather {
 	boolean cancel = false;
 
-	//获取今天的天气预报
+	// 获取今天的天气预报
 	public void getNowWeather() {
 		if (!cancel) {
 			String[] params = {};
@@ -29,7 +29,8 @@ public class GetWeather {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					cancel = true;
-					//cn.imgdpu.util.CatException.getMethod().catException(e, "线程中断异常");
+					// cn.imgdpu.util.CatException.getMethod().catException(e,
+					// "线程中断异常");
 				}
 			}
 			doNowWeather(postDataRun.htmlData);
@@ -75,7 +76,7 @@ public class GetWeather {
 					text.append(getImageName(matcher.group(i)) + "|");
 
 				}
-				//五天
+				// 五天
 				// 预测天气图片
 				// 预测天气（多云）
 				// 预测天气降水概率
@@ -84,18 +85,18 @@ public class GetWeather {
 			}
 		}
 
-		//删除最后一个"|"号
+		// 删除最后一个"|"号
 		text.deleteCharAt(text.lastIndexOf("|"));
 
-		//写入文件
+		// 写入文件
 		cn.imgdpu.util.XmlProcess.setCdata("tdweather", text.toString());
 
 		cn.imgdpu.util.XmlProcess.setAct("tdweather", "1");
 
 	}
 
-	//未来三天或十天的形势分析
-	//day的可选值只是“3”和“10”
+	// 未来三天或十天的形势分析
+	// day的可选值只是“3”和“10”
 	public void getNDayInfo(int day) {
 		if (!cancel) {
 			String[] params = {};
@@ -109,7 +110,8 @@ public class GetWeather {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					cancel = true;
-					//cn.imgdpu.util.CatException.getMethod().catException(e, "线程中断异常");
+					// cn.imgdpu.util.CatException.getMethod().catException(e,
+					// "线程中断异常");
 				}
 			}
 
@@ -121,7 +123,7 @@ public class GetWeather {
 
 			}
 
-			//输出结果
+			// 输出结果
 			cn.imgdpu.util.XmlProcess.setCdata("tenweather", text.toString());
 			cn.imgdpu.util.XmlProcess.setAct("tenweather", "1");
 
@@ -150,7 +152,8 @@ public class GetWeather {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					cancel = true;
-					//cn.imgdpu.util.CatException.getMethod().catException(e, "线程中断异常");
+					// cn.imgdpu.util.CatException.getMethod().catException(e,
+					// "线程中断异常");
 				}
 			}
 			StringBuilder text = new StringBuilder();
@@ -171,10 +174,10 @@ public class GetWeather {
 
 	public static void main(String[] args) {
 		GetWeather myWeather = new GetWeather();
-		myWeather.getNowWeather();//今天天气和未来五天预测
-		myWeather.getNDayInfo(10);//未来十天天气趋势预报
-		myWeather.getZhishu();//生活指数
-		//cn.igdpu.util.XmlProcess.setAct("weather", "1");
+		myWeather.getNowWeather();// 今天天气和未来五天预测
+		myWeather.getNDayInfo(10);// 未来十天天气趋势预报
+		myWeather.getZhishu();// 生活指数
+		// cn.igdpu.util.XmlProcess.setAct("weather", "1");
 
 	}
 }

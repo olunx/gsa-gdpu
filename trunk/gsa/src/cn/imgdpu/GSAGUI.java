@@ -230,7 +230,7 @@ public class GSAGUI {
 		final CTabItem universityTabItem = new CTabItem(newsTabFolder, SWT.NONE);
 		universityTabItem.setToolTipText("大学城的相关新闻");
 		universityTabItem.setText("大学城新闻");
-		
+
 		final CTabItem tabItem_4 = new CTabItem(newsTabFolder, SWT.NONE);
 		tabItem_4.setText("中国教育新闻");
 
@@ -344,7 +344,6 @@ public class GSAGUI {
 		final CTabItem tabItem_2 = new CTabItem(newsTabFolder, SWT.NONE);
 		tabItem_2.setText("大学城网站");
 
-
 		// 设置按钮事件
 		optionTool.addSelectionListener(new MainButListener());
 		optionMI.addSelectionListener(new MainButListener());
@@ -374,8 +373,8 @@ public class GSAGUI {
 		// 是否第一次运行，弹出配置界面
 		isFirstRun();
 
-		//自动更新
-	    autoUpdate = new AutoUpdate().addStartAutoUpdate();
+		// 自动更新
+		autoUpdate = new AutoUpdate().addStartAutoUpdate();
 		autoUpdate.start();
 
 	}
@@ -413,7 +412,7 @@ public class GSAGUI {
 	private void isMiniRun() {
 
 		if (cn.imgdpu.util.XmlProcess.isAct("minirun") == 1) {
-			// shell.setMinimized(true);
+			shell.setMinimized(true);
 		}
 	}
 
@@ -430,7 +429,8 @@ public class GSAGUI {
 
 			StringBuilder s = new StringBuilder();
 
-			s.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><conf><set><tableact>0</tableact><bookact>0</bookact><fetionact>0</fetionact><firstrun>1</firstrun><network>1</network><tdweather>0</tdweather><tenweather>0</tenweather><tdlive>0</tdlive><autorun>0</autorun><minirun>0</minirun><icoring>1</icoring><trayring>1</trayring><midring>1</midring><smsring>0</smsring></set><set><classname /><monday /><tueday /><wenday /><thuday /><friday /><monnig /><tuenig /><wennig /><thunig /><frinig /><tdweather /><tenweather /><tdlive /><mybook /><userinfo /><fetion /><network /><ringday /></set></conf>");
+			s
+					.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><conf><set><tableact>0</tableact><bookact>0</bookact><fetionact>0</fetionact><firstrun>1</firstrun><network>1</network><tdweather>0</tdweather><tenweather>0</tenweather><tdlive>0</tdlive><autorun>0</autorun><minirun>0</minirun><icoring>1</icoring><trayring>1</trayring><midring>1</midring><smsring>0</smsring></set><set><classname /><monday /><tueday /><wenday /><thuday /><friday /><monnig /><tuenig /><wennig /><thunig /><frinig /><tdweather /><tenweather /><tdlive /><mybook /><userinfo /><fetion /><network /><ringday /></set></conf>");
 
 			Writer writeTable;
 			try {

@@ -27,6 +27,7 @@ public class MusicCompo extends Composite {
 
 	/**
 	 * Create the composite
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -43,7 +44,7 @@ public class MusicCompo extends Composite {
 		fd_musicCompo.left = new FormAttachment(0, 5);
 		musicCompo.setLayoutData(fd_musicCompo);
 
-		final Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
+		final Browser musicPlayer = new Browser(musicCompo, SWT.NONE);
 		musicPlayer.setVisible(false);
 
 		final Group warnGroup = new Group(this, SWT.NONE);
@@ -56,8 +57,8 @@ public class MusicCompo extends Composite {
 		warnGroup.setLayoutData(fd_warnGroup);
 
 		final Label label = new Label(warnGroup, SWT.WRAP);
-		label.setText("声明：\n    [随便听听(校园网)]功能的所有数据均来自中diggcd.com，版权归diggcd.com所有。\n\n    此功能针对教育网网络，校园网用户能得到更好的速度体验。" +
-				"\n\n提示：\n    此功能比较耗费系统资源，在每次查看后均可关闭此功能，下次程序重启时就会还原默认。\n\n    欲浏览更多音乐信息，请登陆diggcd的网站：http://diggcd.com/");
+		label.setText("声明：\n    [随便听听(校园网)]功能的所有数据均来自中diggcd.com，版权归diggcd.com所有。\n\n    此功能针对教育网网络，校园网用户能得到更好的速度体验。"
+				+ "\n\n提示：\n    此功能比较耗费系统资源，在每次查看后均可关闭此功能，下次程序重启时就会还原默认。\n\n    欲浏览更多音乐信息，请登陆diggcd的网站：http://diggcd.com/");
 
 		final Button loadBut;
 		loadBut = new Button(this, SWT.NONE);
@@ -70,7 +71,7 @@ public class MusicCompo extends Composite {
 		fd_loadBut.left = new FormAttachment(musicCompo, 5, SWT.RIGHT);
 		loadBut.setLayoutData(fd_loadBut);
 		loadBut.setText("加载播放器");
-		
+
 		final Button disBut;
 		disBut = new Button(this, SWT.NONE);
 		fd_warnGroup.top = new FormAttachment(disBut, 5, SWT.BOTTOM);
@@ -87,34 +88,34 @@ public class MusicCompo extends Composite {
 
 		//
 
-		//加载flash按钮
+		// 加载flash按钮
 		loadBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
-				//Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
-					musicPlayer.setUrl("http://www.diggcd.com/Player_v20.swf");
-					musicPlayer.setVisible(true);
-					loadBut.setEnabled(false);
-					disBut.setEnabled(true);
+				// Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
+				musicPlayer.setUrl("http://www.diggcd.com/Player_v20.swf");
+				musicPlayer.setVisible(true);
+				loadBut.setEnabled(false);
+				disBut.setEnabled(true);
 
 			}
-			
+
 		});
 
-		//销毁flash按钮
+		// 销毁flash按钮
 		disBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
-				
+
 				musicPlayer.setUrl("");
 				musicPlayer.setVisible(false);
 				disBut.setEnabled(false);
 				loadBut.setEnabled(true);
-				
+
 			}
-			
+
 		});
 	}
 

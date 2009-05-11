@@ -34,12 +34,12 @@ public class GeneralMethod {
 		return generalMethod;
 	}
 
-	//根据ip得到表名
+	// 根据ip得到表名
 	public String getIpToTableName(String ip) {
 		return new StringBuffer("ftp_").append(ip.replace(".", "_")).toString();
 	}
 
-	//文件大小转换
+	// 文件大小转换
 	public String formatFilesize(double size) {
 		String result = "0";
 		size = size / 1024.0;
@@ -52,7 +52,7 @@ public class GeneralMethod {
 		return result;
 	}
 
-	//文件类型转换
+	// 文件类型转换
 	public String typeConv(String type) {
 
 		if (type.equalsIgnoreCase("video")) {
@@ -66,7 +66,7 @@ public class GeneralMethod {
 		return type;
 	}
 
-	//传入路径(path)和根目录地址(baseUrl)得到文件所在目录
+	// 传入路径(path)和根目录地址(baseUrl)得到文件所在目录
 	public String getFileParentDir(String path, String baseUrl) {
 		String result = null;
 		result = path.substring(baseUrl.length());
@@ -87,7 +87,7 @@ public class GeneralMethod {
 		return result;
 	}
 
-	//传入路径得到文件扩展名
+	// 传入路径得到文件扩展名
 	public String getExtension(String path) {
 		if ((path != null) && (path.length() > 0)) {
 			int i = path.lastIndexOf('.');
@@ -100,7 +100,7 @@ public class GeneralMethod {
 		return "-";
 	}
 
-	//传入要复制的内容：string[]
+	// 传入要复制的内容：string[]
 	public void copyToSystem(String copys) {
 
 		Clipboard clipboard = new Clipboard(cn.imgdpu.GSAGUI.shell.getDisplay());
@@ -108,67 +108,65 @@ public class GeneralMethod {
 
 	}
 
-	//返回当前时间：2009-04-10
+	// 返回当前时间：2009-04-10
 	public String getNowTime() {
 		SimpleDateFormat bartDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = Calendar.getInstance(TimeZone.getTimeZone("GMT+8:00")).getTime();
 
 		return bartDateFormat.format(date);
 	}
-	
-	
-	//处理rss的日期格式
+
+	// 处理rss的日期格式
 	public String transRssDate(String from) {
-		
+
 		from = from.replaceAll(" ", "");
-		//<pubDate>Thu,02 Apr 2009 19:32:55 +0800</pubDate>
+		// <pubDate>Thu,02 Apr 2009 19:32:55 +0800</pubDate>
 		SimpleDateFormat dateFrom = new SimpleDateFormat("EEE,ddMMMyyyykk:mm:ssZ", Locale.US);
-		
+
 		SimpleDateFormat dateTo = new SimpleDateFormat("yyyy年MM月dd日");
-		
+
 		Date date = null;
 		try {
 			date = dateFrom.parse(from);
 		} catch (ParseException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "未知异常");
 		}
-		
+
 		return dateTo.format(date);
 	}
-	
-	//返回屏幕纵向分辨率
+
+	// 返回屏幕纵向分辨率
 	public int getDisHeight() {
-		//获取屏幕分辨率
-		Rectangle size = Display.getDefault().getClientArea();	
+		// 获取屏幕分辨率
+		Rectangle size = Display.getDefault().getClientArea();
 		return size.height;
 	}
-	
 
-	//返回屏幕横向分辨率
-	public int getDisWidth() {	
-		//获取屏幕分辨率
-		Rectangle size = Display.getDefault().getClientArea();	
+	// 返回屏幕横向分辨率
+	public int getDisWidth() {
+		// 获取屏幕分辨率
+		Rectangle size = Display.getDefault().getClientArea();
 		return size.width;
 	}
-	
-	//设置主界面相对位置
+
+	// 设置主界面相对位置
 	public void setMainDisLoc(Shell shell, int width, int height) {
-		
-		//800x600为主界面大小
-		int w = (GeneralMethod.getGeneralMethod().getDisWidth() - width)/2;
-		int h = (GeneralMethod.getGeneralMethod().getDisHeight() - height)/2;
-		
+
+		// 800x600为主界面大小
+		int w = (GeneralMethod.getGeneralMethod().getDisWidth() - width) / 2;
+		int h = (GeneralMethod.getGeneralMethod().getDisHeight() - height) / 2;
+
 		shell.setBounds(w, h, 0, 0);
 	}
-	
-	//设置对话框相对位置
+
+	// 设置对话框相对位置
 	public void setDisLoc(Shell shell, int width, int height) {
-		
-		//800x600为主界面大小
-		int w = (getDisWidth() - 800)/2 + (800 - width)/2;
-		int h = (getDisHeight() - 600)/2 + (600 - height)/2;
-		
+
+		// 800x600为主界面大小
+		int w = (getDisWidth() - 800) / 2 + (800 - width) / 2;
+		int h = (getDisHeight() - 600) / 2 + (600 - height) / 2;
+
 		shell.setBounds(w, h, 0, 0);
 	}
-	
+
 }

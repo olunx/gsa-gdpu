@@ -34,6 +34,7 @@ public class AboutDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -43,6 +44,7 @@ public class AboutDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 */
 	public AboutDialog(Shell parent) {
@@ -51,6 +53,7 @@ public class AboutDialog extends Dialog {
 
 	/**
 	 * Open the dialog
+	 * 
 	 * @return the result
 	 */
 	public Object open() {
@@ -72,7 +75,7 @@ public class AboutDialog extends Dialog {
 		shell = new Shell(getParent(), SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		shell.setLayout(new FormLayout());
 		shell.setImage(SWTResourceManager.getImage(AboutDialog.class, "/cn/imgdpu/ico/local.gif"));
-		GeneralMethod.getGeneralMethod().setDisLoc(shell , 490 , 320);//设置显示位置
+		GeneralMethod.getGeneralMethod().setDisLoc(shell, 490, 320);// 设置显示位置
 		shell.setSize(490, 320);
 		shell.setText("关于GSA");
 
@@ -119,23 +122,24 @@ public class AboutDialog extends Dialog {
 
 		styledText = new StyledText(group, SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY | SWT.BORDER);
 		styledText.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
-		styledText.setText("简介：\r\n    GSA(Guangdong Pharmaceutical University Student Assistant)，中文名称：广药学生助手。一款饭后余作小软件，希望能给我们平凡的网上生活带来一点点方便，对你有帮助的话就将就着用吧。\r\n\r\n声明：\r\n    本软件公开源码，但仅供用于学习目的。本软件中使用的 [SWT/JFace] [commons-logging] [HttpClient] [FtpClient] [HttpCore] [HttpParser] [SQLite/JDBC] [JDom]  为第三方开源工具包。由于考虑到相关可能涉及到他人商业性的利益，决定不公开某些功能的源码，以免对他人造成不必要的损失。\r\n\r\n程序:olunx(olunx@qq.com) Fatkun(cyk.cn@qq.com)\n文档:Fuquan(fuquan.c@qq.com)");
+		styledText
+				.setText("简介：\r\n    GSA(Guangdong Pharmaceutical University Student Assistant)，中文名称：广药学生助手。一款饭后余作小软件，希望能给我们平凡的网上生活带来一点点方便，对你有帮助的话就将就着用吧。\r\n\r\n声明：\r\n    本软件公开源码，但仅供用于学习目的。本软件中使用的 [SWT/JFace] [commons-logging] [HttpClient] [FtpClient] [HttpCore] [HttpParser] [SQLite/JDBC] [JDom]  为第三方开源工具包。由于考虑到相关可能涉及到他人商业性的利益，决定不公开某些功能的源码，以免对他人造成不必要的损失。\r\n\r\n程序:olunx(olunx@qq.com) Fatkun(cyk.cn@qq.com)\n文档:Fuquan(fuquan.c@qq.com)");
 		final FormData fd_styledText = new FormData();
 		fd_styledText.bottom = new FormAttachment(button, -5, SWT.TOP);
 		fd_styledText.right = new FormAttachment(100, -5);
 		fd_styledText.top = new FormAttachment(label, 5, SWT.BOTTOM);
 		fd_styledText.left = new FormAttachment(label, 0, SWT.LEFT);
 		styledText.setLayoutData(fd_styledText);
-		
+
 		//
-		
-		button.addListener(SWT.Selection, new Listener(){
+
+		button.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event arg0) {
 				shell.dispose();
 			}
-			
+
 		});
 	}
 

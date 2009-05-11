@@ -23,6 +23,7 @@ public class ViewTableInfoDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -32,6 +33,7 @@ public class ViewTableInfoDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 */
 	public ViewTableInfoDialog(Shell parent) {
@@ -40,8 +42,8 @@ public class ViewTableInfoDialog extends Dialog {
 
 	/**
 	 * Open the dialog
-	 * @return the result
-	 * itemNo参数为要显示的班级item
+	 * 
+	 * @return the result itemNo参数为要显示的班级item
 	 */
 	public Object open(int itemNo) {
 		createContents(itemNo);
@@ -54,18 +56,18 @@ public class ViewTableInfoDialog extends Dialog {
 		}
 		return result;
 	}
-	public static void closeShell(){
+
+	public static void closeShell() {
 		shell.dispose();
 	}
-	
+
 	/**
-	 * Create contents of the dialog
-	 * itemNo参数为要显示的班级item
+	 * Create contents of the dialog itemNo参数为要显示的班级item
 	 */
 	protected void createContents(int itemNo) {
 		shell = new Shell(getParent(), SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		shell.setLayout(new FillLayout());
-		GeneralMethod.getGeneralMethod().setDisLoc(shell , 680 , 280);//设置显示位置
+		GeneralMethod.getGeneralMethod().setDisLoc(shell, 680, 280);// 设置显示位置
 		shell.setSize(680, 280);
 		shell.setText("详细课表");
 

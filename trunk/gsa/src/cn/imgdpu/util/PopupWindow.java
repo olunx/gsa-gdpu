@@ -63,7 +63,7 @@ public class PopupWindow extends Thread {
 		Display display = shell.getDisplay();
 		boolean canstop = false;
 
-		//flags用来控制线程的关闭
+		// flags用来控制线程的关闭
 		while (!canstop) {
 			try {
 				Thread.sleep(10);

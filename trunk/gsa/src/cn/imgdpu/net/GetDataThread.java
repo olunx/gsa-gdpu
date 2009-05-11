@@ -55,5 +55,4 @@ public class GetDataThread implements Runnable {
 		}
 	}
 
-
 }

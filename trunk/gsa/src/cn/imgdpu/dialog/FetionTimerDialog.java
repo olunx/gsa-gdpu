@@ -5,7 +5,7 @@
  *
  *This : 
  *
-*/
+ */
 
 package cn.imgdpu.dialog;
 
@@ -34,6 +34,7 @@ public class FetionTimerDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -43,6 +44,7 @@ public class FetionTimerDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 */
 	public FetionTimerDialog(Shell parent) {
@@ -51,6 +53,7 @@ public class FetionTimerDialog extends Dialog {
 
 	/**
 	 * Open the dialog
+	 * 
 	 * @return the result
 	 */
 	public Object open() {
@@ -72,7 +75,7 @@ public class FetionTimerDialog extends Dialog {
 		shell = new Shell(getParent(), SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		shell.setImage(SWTResourceManager.getImage(FetionTimerDialog.class, "/cn/imgdpu/ico/local.gif"));
 		shell.setLayout(new FormLayout());
-		GeneralMethod.getGeneralMethod().setDisLoc(shell , 480 , 320);//设置显示位置
+		GeneralMethod.getGeneralMethod().setDisLoc(shell, 480, 320);// 设置显示位置
 		shell.setSize(480, 320);
 		shell.setText("定时发送管理");
 

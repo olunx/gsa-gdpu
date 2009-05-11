@@ -27,8 +27,8 @@ public class GetMyBookInfo extends Thread {
 
 		try {
 			ArrayList<String> info = new MyBookInfo(user[0], user[1]).getMyBook();
-			
-			//如果第二元素为空，则证明密码错误
+
+			// 如果第二元素为空，则证明密码错误
 			if (info.get(1).equals("")) {
 
 				cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {
@@ -61,11 +61,14 @@ public class GetMyBookInfo extends Thread {
 					});
 
 				/*
-				 * cn.igdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable(){ public void run() { MessageBox box = new MessageBox(cn.igdpu.GSAGUI.shell,
-				 * SWT.ICON_WORKING | SWT.OK); box.setText("提示"); box.setMessage("[借书状态]信息读取成功！"); box.open(); }});
+				 * cn.igdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable(){
+				 * public void run() { MessageBox box = new
+				 * MessageBox(cn.igdpu.GSAGUI.shell, SWT.ICON_WORKING | SWT.OK);
+				 * box.setText("提示"); box.setMessage("[借书状态]信息读取成功！");
+				 * box.open(); }});
 				 */
 			}
-		}catch (NullPointerException e) {
+		} catch (NullPointerException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "空指针异常，获取数据失败。");
 		}
 

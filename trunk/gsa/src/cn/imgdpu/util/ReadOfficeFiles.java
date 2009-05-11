@@ -25,7 +25,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 
 public class ReadOfficeFiles {
-	
+
 	StringBuilder readfiles(String filePath) {
 
 		// 用于保存返回的数据
@@ -37,7 +37,7 @@ public class ReadOfficeFiles {
 			result = readPpt(filePath);
 		} else if (filePath.toLowerCase().endsWith(".xls")) {
 			result = readExcel(filePath);
-		}else {
+		} else {
 			result = readText(filePath);
 		}
 
@@ -57,25 +57,24 @@ public class ReadOfficeFiles {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "指定文件不存在");
 		}
 
-		
 		WordExtractor we = null;
 		try {
 			we = new WordExtractor(in);
 			result.append(we.getText());
-		}catch(EncryptedDocumentException e) {
+		} catch (EncryptedDocumentException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "EncryptedDocument异常");
 		} catch (IOException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "IO异常");
-		} catch(StringIndexOutOfBoundsException e) {
+		} catch (StringIndexOutOfBoundsException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "字符串越界");
-		} catch(NullPointerException e) {
+		} catch (NullPointerException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "空指针异常");
-		} catch(ArrayIndexOutOfBoundsException e) {
+		} catch (ArrayIndexOutOfBoundsException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "数组越界");
-		} catch(IllegalStateException e) {
+		} catch (IllegalStateException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "未知");
 		}
-		
+
 		return result;
 	}
 
@@ -132,7 +131,6 @@ public class ReadOfficeFiles {
 
 			// 取出每一页的内容
 			for (int j = 0; j < t.length; j++) {
-				// System.out.println(t[j].getText());
 				result.append(t[j].getText());
 			}
 		}
@@ -145,13 +143,13 @@ public class ReadOfficeFiles {
 
 		// 用于保存返回的数据
 		StringBuilder result = new StringBuilder();
-		
+
 		FileReader in = null;
 		int b = 0;
 		try {
 			in = new FileReader(new File(filePath));
 			while ((b = in.read()) != -1) {
-				result.append((char)b);
+				result.append((char) b);
 			}
 		} catch (FileNotFoundException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "指定文件不存在");

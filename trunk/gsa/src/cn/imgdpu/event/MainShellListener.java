@@ -41,14 +41,14 @@ public class MainShellListener implements ShellListener {
 		final TrayItem trayItem = tray.getItem(0);
 		trayItem.setVisible(false);
 
-		//关闭更新
+		// 关闭更新
 		cn.imgdpu.GSAGUI.autoUpdate.cancel = true;
-		
-		if(cn.imgdpu.util.PopupWindow.shell != null) {
+
+		if (cn.imgdpu.util.PopupWindow.shell != null) {
 			if (!cn.imgdpu.util.PopupWindow.shell.isDisposed())
 				cn.imgdpu.util.PopupWindow.shell.close();
 		}
-		
+
 		cn.imgdpu.compo.FtpFilesUpdateCompo.stopThread();// 停止FTP列文件
 	}
 

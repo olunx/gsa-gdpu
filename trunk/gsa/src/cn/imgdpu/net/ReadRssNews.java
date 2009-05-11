@@ -16,7 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 public class ReadRssNews {
-	
+
 	public String encode = "UTF-8";
 
 	public void getData(String domain, String target, String fileName) {
@@ -26,13 +26,14 @@ public class ReadRssNews {
 		Thread t = new Thread(post);
 		t.start();
 
-		while (t.isAlive());
+		while (t.isAlive())
+			;
 
 		String out = post.htmlData;
 
 		out = out.replaceFirst("encoding=\"gbk\"", "encoding=\"utf-8\"");
 		out = out.replaceAll("pubdate", "pubDate");
-		
+
 		try {
 
 			Writer ow = new OutputStreamWriter(new FileOutputStream("data\\" + fileName), "UTF-8");

@@ -4,7 +4,7 @@
  *Website : http://www.olunx.com
  *
  *This : 处理所有Exception事件
-*/
+ */
 
 package cn.imgdpu.util;
 
@@ -35,12 +35,12 @@ public class CatException {
 
 		String ex = e.getClass().toString().toLowerCase();
 		String noTip = "filenotfound,numberformat,ioexception";
-		
+
 		if (!noTip.contains(ex)) {
-			//提示
+			// 提示
 			cn.imgdpu.GSAGUI.setStatusAsyn("警告：" + s);
 
-			//记录exception
+			// 记录exception
 			StringBuilder info = new StringBuilder();
 
 			info.append("time: " + new Date());
@@ -54,7 +54,7 @@ public class CatException {
 				info.append("\n");
 			}
 
-			//输出exception
+			// 输出exception
 			Writer writeTable;
 			try {
 				writeTable = new OutputStreamWriter(new FileOutputStream(cn.imgdpu.util.FileUrlConv.UrlConvIo("data\\exceptioninfo.txt")));

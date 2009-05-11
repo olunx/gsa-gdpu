@@ -243,113 +243,111 @@ public class TimeTableCompo extends Composite {
 		fd_label.left = new FormAttachment(nightCompo, 0, SWT.LEFT);
 		label.setLayoutData(fd_label);
 		label.setText("可以对自己的课程表进行任意的修改，修改后记得保存就是了。O(∩_∩)O");
-		
-		//以上生成界面
 
-		//读取课程表，显示出来
+		// 以上生成界面
+
+		// 读取课程表，显示出来
 		setTableText();
-		
-		//修改课程表按钮
+
+		// 修改课程表按钮
 		editTimeBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
 				cn.imgdpu.util.XmlProcess.setCdata("classname", classLabel.getText());
-				
+
 				cn.imgdpu.util.XmlProcess.setCdata("monday", monDT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("tueday", tueDT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("wenday", wenDT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("thuday", thuDT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("friday", friDT.getText());
-				
+
 				cn.imgdpu.util.XmlProcess.setCdata("monnig", monNT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("tuenig", tueNT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("wennig", wenNT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("thunig", thuNT.getText());
 				cn.imgdpu.util.XmlProcess.setCdata("frinig", friNT.getText());
-				
-				MessageBox box = new MessageBox(cn.imgdpu.GSAGUI.shell, SWT.ICON_WORKING
-						| SWT.OK);
+
+				MessageBox box = new MessageBox(cn.imgdpu.GSAGUI.shell, SWT.ICON_WORKING | SWT.OK);
 				box.setText("保存");
 				box.setMessage("修改成功!");
 				box.open();
 			}
-			
+
 		});
 
-		//发送课程表按钮
+		// 发送课程表按钮
 		sendTimeBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
-				
-				//得到选择框的内容
+
+				// 得到选择框的内容
 				String day = weekCombo.getText();
-				
+
 				final StringBuilder sms = new StringBuilder();
-				
+
 				if (day.equals("请选择"))
 					cn.imgdpu.GSAGUI.setStatus("你好像还没有选择要发送星期几的课表？~(>_<)~");
 				else {
 
 					if (day.equals("星期一"))
-						sms.append("星期一\n" + monDT.getText() +"\n\n"+ monNT.getText());
+						sms.append("星期一\n" + monDT.getText() + "\n\n" + monNT.getText());
 					if (day.equals("星期二"))
-						sms.append("星期二\n" + tueDT.getText() +"\n\n"+ tueNT.getText());
+						sms.append("星期二\n" + tueDT.getText() + "\n\n" + tueNT.getText());
 					if (day.equals("星期三"))
-						sms.append("星期三\n" + wenDT.getText() +"\n\n"+ wenNT.getText());
+						sms.append("星期三\n" + wenDT.getText() + "\n\n" + wenNT.getText());
 					if (day.equals("星期四"))
-						sms.append("星期四\n" + thuDT.getText() +"\n\n"+ thuNT.getText());
+						sms.append("星期四\n" + thuDT.getText() + "\n\n" + thuNT.getText());
 					if (day.equals("星期五"))
-						sms.append("星期五\n" + friDT.getText() +"\n\n"+ friNT.getText());
-					
+						sms.append("星期五\n" + friDT.getText() + "\n\n" + friNT.getText());
+
 					cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {
 
 						@Override
 						public void run() {
 							new SendFetionDialog(cn.imgdpu.GSAGUI.shell, sms.toString()).open();
 						}
-						
+
 					});
-			}
-			
+				}
+
 			}
 		});
-		
+
 	}
 
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
 	}
-	
-	//设置文本框内容的方法
+
+	// 设置文本框内容的方法
 	public static void setTableText() {
 
-		//判断课程表是否已经设置，0未设，1已设	
+		// 判断课程表是否已经设置，0未设，1已设
 		if (cn.imgdpu.util.XmlProcess.isAct("tableact") == 1) {
 
-				editTimeBut.setEnabled(true);
-				sendTimeBut.setEnabled(true);
+			editTimeBut.setEnabled(true);
+			sendTimeBut.setEnabled(true);
 
-			//读取已保存的课程表信息
+			// 读取已保存的课程表信息
 
-				classLabel.setText(cn.imgdpu.util.XmlProcess.getCdata("classname"));
-				monDT.setText(cn.imgdpu.util.XmlProcess.getCdata("monday"));
-				tueDT.setText(cn.imgdpu.util.XmlProcess.getCdata("tueday"));
-				wenDT.setText(cn.imgdpu.util.XmlProcess.getCdata("wenday"));
-				thuDT.setText(cn.imgdpu.util.XmlProcess.getCdata("thuday"));
-				friDT.setText(cn.imgdpu.util.XmlProcess.getCdata("friday"));
+			classLabel.setText(cn.imgdpu.util.XmlProcess.getCdata("classname"));
+			monDT.setText(cn.imgdpu.util.XmlProcess.getCdata("monday"));
+			tueDT.setText(cn.imgdpu.util.XmlProcess.getCdata("tueday"));
+			wenDT.setText(cn.imgdpu.util.XmlProcess.getCdata("wenday"));
+			thuDT.setText(cn.imgdpu.util.XmlProcess.getCdata("thuday"));
+			friDT.setText(cn.imgdpu.util.XmlProcess.getCdata("friday"));
 
-				monNT.setText(cn.imgdpu.util.XmlProcess.getCdata("monnig"));
-				tueNT.setText(cn.imgdpu.util.XmlProcess.getCdata("tuenig"));
-				wenNT.setText(cn.imgdpu.util.XmlProcess.getCdata("wennig"));
-				thuNT.setText(cn.imgdpu.util.XmlProcess.getCdata("thunig"));
-				friNT.setText(cn.imgdpu.util.XmlProcess.getCdata("frinig"));
+			monNT.setText(cn.imgdpu.util.XmlProcess.getCdata("monnig"));
+			tueNT.setText(cn.imgdpu.util.XmlProcess.getCdata("tuenig"));
+			wenNT.setText(cn.imgdpu.util.XmlProcess.getCdata("wennig"));
+			thuNT.setText(cn.imgdpu.util.XmlProcess.getCdata("thunig"));
+			friNT.setText(cn.imgdpu.util.XmlProcess.getCdata("frinig"));
 
 		}
 
 	}
-
 
 }

@@ -37,7 +37,7 @@ public class NewsCampusCompo extends Composite {
 	private Button updateBut;
 	// 保存数据的文件
 	String fileName = "newscampus.xml";
-	
+
 	/**
 	 * Create the composite
 	 * 
@@ -135,7 +135,6 @@ public class NewsCampusCompo extends Composite {
 		});
 	}
 
-
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
@@ -147,7 +146,7 @@ public class NewsCampusCompo extends Composite {
 		updateBut.setEnabled(false);
 		cn.imgdpu.GSAGUI.setStatusAsyn("正在用力读取数据中...~(>_<)~");
 
-		//更新线程
+		// 更新线程
 		new UpdateCampusNews().start();
 	}
 

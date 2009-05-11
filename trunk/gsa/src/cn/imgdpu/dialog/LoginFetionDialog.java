@@ -4,7 +4,7 @@
  *Website : http://www.olunx.com
  *
  *This:登陆窗口，填写学号，密码
-*/
+ */
 
 package cn.imgdpu.dialog;
 
@@ -40,6 +40,7 @@ public class LoginFetionDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -49,6 +50,7 @@ public class LoginFetionDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 */
 	public LoginFetionDialog(Shell parent) {
@@ -57,6 +59,7 @@ public class LoginFetionDialog extends Dialog {
 
 	/**
 	 * Open the dialog
+	 * 
 	 * @return the result
 	 */
 	public Object open() {
@@ -77,7 +80,7 @@ public class LoginFetionDialog extends Dialog {
 	protected void createContents() {
 		shell = new Shell(getParent(), SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		shell.setLayout(new FormLayout());
-		GeneralMethod.getGeneralMethod().setDisLoc(shell , 259 , 186);//设置显示位置
+		GeneralMethod.getGeneralMethod().setDisLoc(shell, 259, 186);// 设置显示位置
 		shell.setSize(259, 186);
 		shell.setText("飞信");
 
@@ -103,7 +106,7 @@ public class LoginFetionDialog extends Dialog {
 		pwdGroup.setLayoutData(fd_pwdGroup);
 		pwdGroup.setText("密码");
 
-		pwdText = new Text(pwdGroup, SWT.BORDER|SWT.PASSWORD);
+		pwdText = new Text(pwdGroup, SWT.BORDER | SWT.PASSWORD);
 
 		final Button sureBut = new Button(shell, SWT.NONE);
 		final FormData fd_sureBut = new FormData();
@@ -122,7 +125,7 @@ public class LoginFetionDialog extends Dialog {
 		fd_cancelBut.left = new FormAttachment(0, 129);
 		cancelBut.setLayoutData(fd_cancelBut);
 		cancelBut.setText("取消");
-		
+
 		label = new CLabel(shell, SWT.NONE);
 		label.setImage(SWTResourceManager.getImage(LoginFetionDialog.class, "/cn/imgdpu/ico/ihigh_obj.gif"));
 		final FormData fd_label = new FormData();
@@ -133,41 +136,40 @@ public class LoginFetionDialog extends Dialog {
 		label.setLayoutData(fd_label);
 		label.setText("第一次使用需要输入账号密码!^_^");
 		//
-		
-		//上方为自动生成，下面添加事件处理
-		cancelBut.addListener(SWT.Selection, new Listener(){
+
+		// 上方为自动生成，下面添加事件处理
+		cancelBut.addListener(SWT.Selection, new Listener() {
 			@Override
 			public void handleEvent(Event arg0) {
 				shell.dispose();
-			}});
-		
+			}
+		});
+
 		sureBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
 
-				if(idText.getText().equals("") || pwdText.getText().equals("")) {
+				if (idText.getText().equals("") || pwdText.getText().equals("")) {
 					label.setText("你是否漏了点什么？~(>_<)~");
-				}else {
-					
-					//加密，然后存入xml文件中
+				} else {
+
+					// 加密，然后存入xml文件中
 					byte[] pwdCode = null;
 					try {
 						pwdCode = Base64.encode(pwdText.getText().getBytes("UTF-8"));
 					} catch (UnsupportedEncodingException e1) {
 						cn.imgdpu.util.CatException.getMethod().catException(e1, "不支持的编码类型");
 					}
-					String s = idText.getText() +"#"+ new String(pwdCode);
+					String s = idText.getText() + "#" + new String(pwdCode);
 					cn.imgdpu.util.XmlProcess.setCdata("fetion", s);
 					cn.imgdpu.util.XmlProcess.setAct("fetionact", "1");
 					shell.dispose();
-					
+
 				}
-				
-				
-				
+
 			}
-			
+
 		});
 
 	}
