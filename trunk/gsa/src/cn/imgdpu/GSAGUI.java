@@ -177,7 +177,6 @@ public class GSAGUI {
 		weather.setImage(SWTResourceManager.getImage(GSAGUI.class, "ico/home_nav.gif"));
 		final FormData fd_weather = new FormData();
 		fd_weather.left = new FormAttachment(100, -133);
-		fd_weather.bottom = new FormAttachment(toolBar, 0, SWT.BOTTOM);
 		fd_weather.right = new FormAttachment(100, -5);
 		fd_weather.top = new FormAttachment(toolBar, 0, SWT.TOP);
 		weather.setLayoutData(fd_weather);
@@ -185,11 +184,12 @@ public class GSAGUI {
 
 		TabFolder mainTabFolder;
 		mainTabFolder = new TabFolder(shell, SWT.NONE);
+		fd_weather.bottom = new FormAttachment(mainTabFolder, 0, SWT.TOP);
 		fd_toolBar.bottom = new FormAttachment(mainTabFolder, 0, SWT.TOP);
 		final FormData fd_mainTabFolder = new FormData();
+		fd_mainTabFolder.top = new FormAttachment(0, 45);
 		fd_mainTabFolder.bottom = new FormAttachment(100, -22);
 		fd_mainTabFolder.left = new FormAttachment(0, 5);
-		fd_mainTabFolder.top = new FormAttachment(0, 45);
 		fd_mainTabFolder.right = new FormAttachment(100, -5);
 		mainTabFolder.setLayoutData(fd_mainTabFolder);
 

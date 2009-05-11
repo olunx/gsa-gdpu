@@ -407,7 +407,7 @@ public class WeatherCompo extends Composite {
 
 					// 顶部天气
 					cn.imgdpu.GSAGUI.weather.setImage(SWTResourceManager.getImage(GSAGUI.class, "wico/" + td[1]));
-					cn.imgdpu.GSAGUI.weather.setText("广州\n\n" + td[3] + "℃");
+					cn.imgdpu.GSAGUI.weather.setText("广州\n" + td[3] + "℃");
 					cn.imgdpu.GSAGUI.weather.setToolTipText(td[2]);
 					cn.imgdpu.GSAGUI.weather.update();
 				}
