@@ -3,7 +3,7 @@
  *
  *Website : http://www.olunx.com
  *
- *This: 主文件(测试svn)
+ *This: 主文件
  */
 
 package cn.imgdpu;
