@@ -28,7 +28,7 @@ public class PostDataThread implements Runnable {
 	public String url;
 	public String[] sendData;
 	public String encode = "gb2312";// 编码
-	public String referer = "";//来源
+	public String referer = "";// 来源
 	public String htmlData;// 返回源码变量
 
 	public PostDataThread(String _url, String[] _sendData) {

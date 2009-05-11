@@ -12,7 +12,6 @@ package cn.imgdpu.util;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -36,17 +35,13 @@ public class LuneceProcess {
 
 		// 建立分析器
 		Analyzer luceneAnalyzer = new StandardAnalyzer();
-		
 
 		try {
-			//索引保存的目录
+			// 索引保存的目录
 			FSDirectory indexPath = FSDirectory.getDirectory(new File(indexDir));
-			
+
 			// 索引处理
 			IndexWriter indexWriter = new IndexWriter(indexPath, luceneAnalyzer, true, IndexWriter.MaxFieldLength.LIMITED);
-
-			// 开始时间
-			long startTime = new Date().getTime();
 
 			// 为每一个文件建立索引
 			for (int i = 0; i < filesPath.size(); i++) {
@@ -69,10 +64,6 @@ public class LuneceProcess {
 			indexWriter.optimize();
 			indexWriter.close();
 
-			// 结束时间
-			long endTime = new Date().getTime();
-
-			System.out.println("共用了 " + (endTime - startTime) + " 毫秒建立索引");
 		} catch (CorruptIndexException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "CorruptIndex异常");
 		} catch (LockObtainFailedException e) {
@@ -86,16 +77,16 @@ public class LuneceProcess {
 	// 参数：搜索索引目录、搜索内容
 	public ArrayList<String> searchData(String indexDir, String queryStr) {
 
-		//保存返回的结果
+		// 保存返回的结果
 		ArrayList<String> result = new ArrayList<String>();
-		
+
 		// 建立分析器
 		Analyzer analyzer = new StandardAnalyzer();
 
 		try {
-			//索引所在的目录
+			// 索引所在的目录
 			FSDirectory indexPath = FSDirectory.getDirectory(new File(indexDir));
-			
+
 			// 搜索索引
 			Searcher searcher = new IndexSearcher(indexPath);
 
@@ -105,15 +96,15 @@ public class LuneceProcess {
 			// 搜索结果
 			ScoreDoc[] docs = searcher.search(query, searcher.maxDoc()).scoreDocs;
 
-			//搜索结果条数
-			System.out.println(docs.length);
+			// 搜索结果条数
+			//System.out.println(docs.length);
 
 			Document doc;
 
 			// 返回搜索的内容
 			for (int i = 0; i < docs.length; i++) {
 				doc = searcher.doc(docs[i].doc);
-				System.out.println(doc.get("path"));
+				//System.out.println(doc.get("path"));
 				result.add(doc.get("path"));
 			}
 
@@ -122,7 +113,7 @@ public class LuneceProcess {
 		} catch (IOException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "IO异常");
 		}
-		
+
 		return result;
 
 	}

@@ -256,7 +256,7 @@ public class SearchTextCompo extends Composite {
 									public void run() {
 										warnLab.setText("搜索时间长短取决于你的电脑配置和搜索的文件多少！请耐心等待...^_^");
 										loadBut.setEnabled(false);
-										//stopBut.setEnabled(true);
+										// stopBut.setEnabled(true);
 									}
 								});
 
@@ -266,7 +266,7 @@ public class SearchTextCompo extends Composite {
 									File[] file = lock.listFiles();
 									for (int i = 0; i < file.length; i++) {
 										file[i].delete();
-										System.out.println(file[i].getName());
+										//System.out.println(file[i].getName());
 									}
 								}
 
@@ -284,7 +284,7 @@ public class SearchTextCompo extends Composite {
 									@Override
 									public void run() {
 										loadBut.setEnabled(true);
-										//stopBut.setEnabled(false);
+										// stopBut.setEnabled(false);
 										warnLab.setText("搜索完成，在以上 " + listTable.getItemCount() + " 个文件中找到相关词条！O(∩_∩)O");
 									}
 								});
@@ -305,19 +305,19 @@ public class SearchTextCompo extends Composite {
 
 		});
 
-//		// 停止按钮
-//		stopBut.addListener(SWT.Selection, new Listener() {
-//
-//			public void handleEvent(Event e) {
-//				if (searchThread.isAlive()) {
-//
-//					//searchThread = null;
-//					loadBut.setEnabled(true);
-//					stopBut.setEnabled(false);
-//				}
-//			}
-//
-//		});
+		// // 停止按钮
+		// stopBut.addListener(SWT.Selection, new Listener() {
+		//
+		// public void handleEvent(Event e) {
+		// if (searchThread.isAlive()) {
+		//
+		// //searchThread = null;
+		// loadBut.setEnabled(true);
+		// stopBut.setEnabled(false);
+		// }
+		// }
+		//
+		// });
 
 	}
 

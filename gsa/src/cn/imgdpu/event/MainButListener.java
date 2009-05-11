@@ -45,11 +45,11 @@ public class MainButListener implements SelectionListener {
 			trayItem.setVisible(false);
 			cn.imgdpu.GSAGUI.shell.setVisible(false);
 			cn.imgdpu.GSAGUI.shell.close();
-//			cn.imgdpu.GSAGUI.shell.dispose();
+			// cn.imgdpu.GSAGUI.shell.dispose();
 		} else if (eName.equals("关于") || eName.equals("关于GSA")) {
 			new AboutDialog(cn.imgdpu.GSAGUI.shell).open();
 		} else if (eName.equals("更新")) {
-			//更新
+			// 更新
 			new AutoUpdate().addOnceUpdate().start();
 
 			cn.imgdpu.GSAGUI.setStatus("数据已经开始更新，预计将会在几秒钟时间内完成。");

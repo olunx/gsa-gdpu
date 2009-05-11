@@ -82,7 +82,7 @@ public class BookInfoDialog extends Dialog {
 	protected void createContents() {
 		shell = new Shell(getParent(), SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		shell.setAlpha(250);
-		GeneralMethod.getGeneralMethod().setDisLoc(shell , 345 , 304);//设置显示位置
+		GeneralMethod.getGeneralMethod().setDisLoc(shell, 345, 304);// 设置显示位置
 		shell.setSize(345, 304);
 		shell.setText("详情");
 
@@ -107,7 +107,7 @@ public class BookInfoDialog extends Dialog {
 		closeBtn.setText("关闭");
 		closeBtn.setBounds(253, 243, 76, 22);
 		//
-		
+
 		closeBtn.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent arg0) {
 				shell.close();
@@ -125,7 +125,7 @@ public class BookInfoDialog extends Dialog {
 		else
 			for (int i = 0; i < book.size(); i += 2) {
 				final TableItem item = new TableItem(table, SWT.BORDER);
-				item.setText(new String[] { book.get(i), book.get(i+1)});
+				item.setText(new String[] { book.get(i), book.get(i + 1) });
 			}
 	}
 

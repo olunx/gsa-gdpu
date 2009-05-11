@@ -14,7 +14,8 @@ import org.eclipse.swt.widgets.Table;
 
 public class SwtTableItemHeightListener implements Listener {
 	Table table;
-	public SwtTableItemHeightListener(Table _table){
+
+	public SwtTableItemHeightListener(Table _table) {
 		table = _table;
 	}
 

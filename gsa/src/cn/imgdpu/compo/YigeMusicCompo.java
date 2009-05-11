@@ -27,6 +27,7 @@ public class YigeMusicCompo extends Composite {
 
 	/**
 	 * Create the composite
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -43,7 +44,7 @@ public class YigeMusicCompo extends Composite {
 		fd_musicCompo.left = new FormAttachment(0, 5);
 		musicCompo.setLayoutData(fd_musicCompo);
 
-		final Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
+		final Browser musicPlayer = new Browser(musicCompo, SWT.NONE);
 		musicPlayer.setVisible(false);
 
 		final Group warnGroup = new Group(this, SWT.NONE);
@@ -56,8 +57,8 @@ public class YigeMusicCompo extends Composite {
 		warnGroup.setLayoutData(fd_warnGroup);
 
 		final Label label = new Label(warnGroup, SWT.WRAP);
-		label.setText("声明：\n    [随便听听(非校园网)]功能的所有数据均来自中1g1g.com，版权归1g1g.com所有。\n\n    此功能针对非校园网网络，电信和网通用户能得到更好的速度体验。" +
-				"\n\n提示：\n    此功能比较耗费系统资源，在每次查看后均可关闭此功能，下次程序重启时就会还原默认。\n\n    欲浏览更多音乐信息，请登陆[亦歌]的网站：http://www.1g1g.com/");
+		label.setText("声明：\n    [随便听听(非校园网)]功能的所有数据均来自中1g1g.com，版权归1g1g.com所有。\n\n    此功能针对非校园网网络，电信和网通用户能得到更好的速度体验。"
+				+ "\n\n提示：\n    此功能比较耗费系统资源，在每次查看后均可关闭此功能，下次程序重启时就会还原默认。\n\n    欲浏览更多音乐信息，请登陆[亦歌]的网站：http://www.1g1g.com/");
 
 		final Button loadBut;
 		loadBut = new Button(this, SWT.NONE);
@@ -70,7 +71,7 @@ public class YigeMusicCompo extends Composite {
 		fd_loadBut.left = new FormAttachment(musicCompo, 5, SWT.RIGHT);
 		loadBut.setLayoutData(fd_loadBut);
 		loadBut.setText("加载播放器");
-		
+
 		final Button disBut;
 		disBut = new Button(this, SWT.NONE);
 		fd_warnGroup.top = new FormAttachment(disBut, 5, SWT.BOTTOM);
@@ -87,34 +88,34 @@ public class YigeMusicCompo extends Composite {
 
 		//
 
-		//加载flash按钮
+		// 加载flash按钮
 		loadBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
-				//Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
-					musicPlayer.setUrl("http://www.1g1g.com/");
-					musicPlayer.setVisible(true);
-					loadBut.setEnabled(false);
-					disBut.setEnabled(true);
+				// Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
+				musicPlayer.setUrl("http://www.1g1g.com/");
+				musicPlayer.setVisible(true);
+				loadBut.setEnabled(false);
+				disBut.setEnabled(true);
 
 			}
-			
+
 		});
 
-		//销毁flash按钮
+		// 销毁flash按钮
 		disBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
-				
+
 				musicPlayer.setUrl("");
 				musicPlayer.setVisible(false);
 				disBut.setEnabled(false);
 				loadBut.setEnabled(true);
-				
+
 			}
-			
+
 		});
 	}
 

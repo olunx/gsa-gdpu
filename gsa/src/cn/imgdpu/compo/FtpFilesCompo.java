@@ -247,7 +247,7 @@ public class FtpFilesCompo extends Composite {
 				String sizeStr = sizeText.getText().trim();
 				Float fsize = 0f;
 				try {
-					if(!sizeText.getText().trim().equals("")) {
+					if (!sizeText.getText().trim().equals("")) {
 						fsize = Float.parseFloat(sizeStr);
 						fsize = fsize * 1024 * 1024;
 					}

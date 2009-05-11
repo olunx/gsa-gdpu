@@ -33,28 +33,28 @@ public class GetBookInfo extends Thread {
 		Matcher matcher = pattern.matcher(s);
 		ArrayList<String> book = new ArrayList<String>();
 		while (matcher.find()) {
-			book.add(matcher.group(1));//收藏单位
-			book.add(matcher.group(2));//状态
+			book.add(matcher.group(1));// 收藏单位
+			book.add(matcher.group(2));// 状态
 			matchFlag = true;
 		}
 		if (!matchFlag) {
 			cn.imgdpu.GSAGUI.setStatusAsyn("没有数据");
 		}
 		final ArrayList<String> book2 = new ArrayList<String>(book);
-		cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable(){
+		cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {
 
 			@Override
 			public void run() {
-				try{
-				cn.imgdpu.dialog.BookInfoDialog.setBookInfo(book2);
-				}catch(org.eclipse.swt.SWTException e){
+				try {
+					cn.imgdpu.dialog.BookInfoDialog.setBookInfo(book2);
+				} catch (org.eclipse.swt.SWTException e) {
 					cn.imgdpu.util.CatException.getMethod().catException(e, "SWT异常");
 				}
-				
+
 			}
-			
+
 		});
-		
+
 	}
 
 	String url;

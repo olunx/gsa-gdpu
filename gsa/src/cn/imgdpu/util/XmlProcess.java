@@ -33,7 +33,6 @@ public class XmlProcess {
 	// 要读取的数据文件路经，要和cn.igdpu.net.GetTimetable中的一致
 	String filePath = cn.imgdpu.util.FileUrlConv.UrlConv("data/classtable_temp.xml");
 
-	
 	// 返回班级名称
 	public ArrayList<String> ReadClassXml() {
 
@@ -61,7 +60,6 @@ public class XmlProcess {
 		return data;
 	}
 
-	
 	// 返回指定班级名称
 	public String ReadOneClassXml(int itemNo) {
 
@@ -86,7 +84,6 @@ public class XmlProcess {
 		return data;
 	}
 
-	
 	// 返回指定索引的课表
 	// 第一个参数为班级item索引值
 	public ArrayList<String> getTableXML(int itemNo) {
@@ -118,7 +115,6 @@ public class XmlProcess {
 		return data;
 	}
 
-	
 	// 返回是否可用
 	public static int isAct(String name) {
 
@@ -143,7 +139,6 @@ public class XmlProcess {
 		return act;
 	}
 
-	
 	// 设置是否可用，1代表可用
 	public static void setAct(String name, String act) {
 
@@ -175,13 +170,12 @@ public class XmlProcess {
 			outputter.setFormat(fmt);
 			outputter.output(root.getDocument(), new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
 
-		}catch (IOException e) {
+		} catch (IOException e) {
 			cn.imgdpu.util.CatException.getMethod().catException(e, "IO异常");
 		}
 
 	}
 
-	
 	// 修改CData区，传入参数为要写入的内容，在此即为修改后的课程表的内容，或者是借书的信息
 	public static void setCdata(String name, String data) {
 
@@ -225,7 +219,6 @@ public class XmlProcess {
 
 	}
 
-	
 	// 得到指定内容，再此，返回课程表或借书信息
 	public static String getCdata(String name) {
 
@@ -249,8 +242,7 @@ public class XmlProcess {
 		return element.getChildText(name);
 	}
 
-	
-	//返回新闻数据
+	// 返回新闻数据
 	@SuppressWarnings("unchecked")
 	public static ArrayList<String> getNewsData(String fileName) {
 		ArrayList<String> result = new ArrayList<String>();
@@ -260,7 +252,7 @@ public class XmlProcess {
 		inFile = cn.imgdpu.util.FileUrlConv.UrlConv("data/" + fileName);
 		shortFile = "data\\" + fileName;
 
-		//检查文件是否存在
+		// 检查文件是否存在
 		isSearchAlive(shortFile);
 
 		SAXBuilder builder = new SAXBuilder(false);
@@ -277,32 +269,30 @@ public class XmlProcess {
 		Element root = document.getRootElement();
 
 		List channel = root.getChildren("channel");
-		
-		Element channelChild = (Element)channel.get(0);
+
+		Element channelChild = (Element) channel.get(0);
 
 		List child = channelChild.getChildren("item");
-		
+
 		Element site = null;
 
-			for (int i = 0; i < child.size(); i++) {
+		for (int i = 0; i < child.size(); i++) {
 
-				//得到所有第一级子节点
-				site = (Element) child.get(i);
+			// 得到所有第一级子节点
+			site = (Element) child.get(i);
 
-				result.add(site.getChildText("title"));
-				result.add(site.getChildText("link"));
-				result.add(site.getChildText("description"));
-				result.add(cn.imgdpu.util.GeneralMethod.getGeneralMethod().transRssDate(site.getChildText("pubDate")));
-				result.add(site.getChildText("author"));
+			result.add(site.getChildText("title"));
+			result.add(site.getChildText("link"));
+			result.add(site.getChildText("description"));
+			result.add(cn.imgdpu.util.GeneralMethod.getGeneralMethod().transRssDate(site.getChildText("pubDate")));
+			result.add(site.getChildText("author"));
 
-			}
+		}
 
-		
 		return result;
 	}
-	
-	
-	//配置文件丢失处理
+
+	// 配置文件丢失处理
 	private static void isSearchAlive(String file) {
 
 		File conf = new File(cn.imgdpu.util.FileUrlConv.UrlConvIo(file));
@@ -333,6 +323,5 @@ public class XmlProcess {
 		}
 
 	}
-
 
 }

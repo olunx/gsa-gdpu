@@ -43,6 +43,7 @@ public class SendFetionDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -52,6 +53,7 @@ public class SendFetionDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 */
 	public SendFetionDialog(Shell parent) {
@@ -65,6 +67,7 @@ public class SendFetionDialog extends Dialog {
 
 	/**
 	 * Open the dialog
+	 * 
 	 * @return the result
 	 */
 	public Object open() {
@@ -86,7 +89,7 @@ public class SendFetionDialog extends Dialog {
 		shell = new Shell(getParent(), SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		shell.setLayout(new FormLayout());
 		shell.setImage(SWTResourceManager.getImage(SendFetionDialog.class, "/cn/imgdpu/ico/local.gif"));
-		GeneralMethod.getGeneralMethod().setDisLoc(shell , 350 , 297);//设置显示位置
+		GeneralMethod.getGeneralMethod().setDisLoc(shell, 350, 297);// 设置显示位置
 		shell.setSize(350, 333);
 		shell.setText("发短信给自己");
 
@@ -135,7 +138,7 @@ public class SendFetionDialog extends Dialog {
 		fd_group.bottom = new FormAttachment(conGroup, -5, SWT.TOP);
 		conGroup.setText("短信内容预览");
 		final FormData fd_conGroup = new FormData();
-		fd_conGroup.top = new FormAttachment(0, 90);
+		fd_conGroup.top = new FormAttachment(0, 95);
 		fd_conGroup.bottom = new FormAttachment(100, -5);
 		fd_conGroup.right = new FormAttachment(100, -5);
 		fd_conGroup.left = new FormAttachment(group, 0, SWT.LEFT);
@@ -144,7 +147,7 @@ public class SendFetionDialog extends Dialog {
 
 		smsSText = new StyledText(conGroup, SWT.WRAP | SWT.V_SCROLL | SWT.BORDER);
 		smsSText.setToolTipText("输入要发送的内容");
-		smsSText.setTextLimit(180);//设置180字限制
+		smsSText.setTextLimit(180);// 设置180字限制
 		final FormData fd_smsSText = new FormData();
 		fd_smsSText.bottom = new FormAttachment(0, 125);
 		fd_smsSText.right = new FormAttachment(100, -5);
@@ -172,7 +175,7 @@ public class SendFetionDialog extends Dialog {
 		fd_sendSmsBut.left = new FormAttachment(smsSText, 0, SWT.LEFT);
 		sendSmsBut.setLayoutData(fd_sendSmsBut);
 		sendSmsBut.setText("开始发送");
-		
+
 		final CLabel label_1 = new CLabel(group, SWT.NONE);
 		label_1.setImage(SWTResourceManager.getImage(SendFetionDialog.class, "/cn/imgdpu/ico/text_field.gif"));
 		final FormData fd_label_1 = new FormData();
@@ -183,7 +186,7 @@ public class SendFetionDialog extends Dialog {
 		label_1.setLayoutData(fd_label_1);
 		label_1.setText("发送时间：");
 
-		timeSText = new StyledText(group, SWT.READ_ONLY | SWT.BORDER);
+		timeSText = new StyledText(group, SWT.FULL_SELECTION | SWT.SINGLE | SWT.READ_ONLY | SWT.BORDER);
 		timeSText.setText("即时");
 		timeSText.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 		final FormData fd_timeSText = new FormData();
@@ -204,7 +207,7 @@ public class SendFetionDialog extends Dialog {
 		timerBut.setText("定时发送");
 		//
 
-		//计算输入的字符个数
+		// 计算输入的字符个数
 		smsSText.addListener(SWT.Modify, new Listener() {
 
 			int left;
@@ -223,11 +226,11 @@ public class SendFetionDialog extends Dialog {
 
 		});
 
-		//读取用户手机号码
+		// 读取用户手机号码
 		final String[] userInfo = readUserInfo();
 		phoneSText.setText(userInfo[0]);
 
-		//发送Text中的数据
+		// 发送Text中的数据
 		sendSmsBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
@@ -251,32 +254,30 @@ public class SendFetionDialog extends Dialog {
 
 		});
 
-		//修改飞信帐号密码
+		// 修改飞信帐号密码
 		editPhoneBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event arg0) {
 				new OptionDialog(shell).open();
-				//读取用户手机号码
+				// 读取用户手机号码
 				final String[] s = readUserInfo();
 				phoneSText.setText(s[0]);
 			}
 
 		});
-		
-		//定时发送按钮
+
+		// 定时发送按钮
 		timerBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
 				new FetionTimerDialog(shell).open();
 			}
-			
+
 		});
 
-
-
-		//设置文本框内容
+		// 设置文本框内容
 		setSmsText();
 	}
 
@@ -302,14 +303,14 @@ public class SendFetionDialog extends Dialog {
 
 	}
 
-	//设置Text中的数据
+	// 设置Text中的数据
 	private void setSmsText() {
 		if (!sms.isEmpty()) {
 			smsSText.setText(sms);
 		}
 	}
 
-	//异步设置状态的内容
+	// 异步设置状态的内容
 	public static void setStatusAsyn(final String s) {
 		if (!shell.isDisposed()) {
 			shell.getDisplay().asyncExec(new Runnable() {

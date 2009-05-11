@@ -16,19 +16,19 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 public class GetTimetable {
-	
+
 	public boolean flagInfo = false;
 
 	public void getClassTime(String className) {
 
-		String[] params = { "classname="+className };
+		String[] params = { "classname=" + className };
 
 		String url = "http://www.olunx.com/gsa/ke.asp";
 
 		PostDataThread postDataRun = new PostDataThread(url, params);
 
 		postDataRun.encode = "utf-8";// 设置编码（默认gb2312）
-		
+
 		Thread postDataThread = new Thread(postDataRun);
 		postDataThread.start();
 		while (postDataThread.isAlive()) {
@@ -42,12 +42,11 @@ public class GetTimetable {
 	}
 
 	public void doGetClassTime(String s) {
-		
-		//将传回的数据写入xml文件
+
+		// 将传回的数据写入xml文件
 		Writer writeTable;
 		try {
-			writeTable = new OutputStreamWriter(new FileOutputStream(cn.imgdpu.util.FileUrlConv.UrlConvIo("data\\classtable_temp.xml")),
-					"UTF-8");
+			writeTable = new OutputStreamWriter(new FileOutputStream(cn.imgdpu.util.FileUrlConv.UrlConvIo("data\\classtable_temp.xml")), "UTF-8");
 			writeTable.write(s);
 			writeTable.close();
 		} catch (UnsupportedEncodingException e) {

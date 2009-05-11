@@ -91,22 +91,22 @@ public class TimerWorker extends Thread {
 
 		if (cn.imgdpu.util.XmlProcess.isAct("icoring") == 1) {
 			if (!cn.imgdpu.GSAGUI.shell.isDisposed())
-			cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {
+				cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {
 
-				public void run() {
+					public void run() {
 
-					cn.imgdpu.SystemTray.trayItem.setImage(SWTResourceManager.getImage(SystemTray.class, "ico/ihigh_obj.gif"));
-				}
-			});
+						cn.imgdpu.SystemTray.trayItem.setImage(SWTResourceManager.getImage(SystemTray.class, "ico/ihigh_obj.gif"));
+					}
+				});
 		}
 		if (cn.imgdpu.util.XmlProcess.isAct("trayring") == 1) {
 			if (!cn.imgdpu.GSAGUI.shell.isDisposed())
-			cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {
-				public void run() {
-					new PopupWindow(s.toString()).start();
-					cn.imgdpu.SystemTray.itemBookMenu.setEnabled(true);
-				}
-			});
+				cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						new PopupWindow(s.toString()).start();
+						cn.imgdpu.SystemTray.itemBookMenu.setEnabled(true);
+					}
+				});
 		}
 		if (cn.imgdpu.util.XmlProcess.isAct("midring") == 1) {
 

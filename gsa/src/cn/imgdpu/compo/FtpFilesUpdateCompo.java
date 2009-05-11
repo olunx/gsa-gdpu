@@ -44,6 +44,7 @@ public class FtpFilesUpdateCompo extends Composite {
 
 	/**
 	 * Create the composite
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -61,7 +62,7 @@ public class FtpFilesUpdateCompo extends Composite {
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
 
-		//设置swtItem的高度
+		// 设置swtItem的高度
 		table.addListener(SWT.MeasureItem, new cn.imgdpu.event.SwtTableItemHeightListener(table));
 
 		final TableColumn newColumnTableColumn_1 = new TableColumn(table, SWT.NONE);
@@ -191,9 +192,9 @@ public class FtpFilesUpdateCompo extends Composite {
 		newColumnTableColumn_5.setWidth(100);
 		newColumnTableColumn_5.setText("数据库表名");
 
-		readSite();//读取站点列表
+		readSite();// 读取站点列表
 
-		//设置右键菜单
+		// 设置右键菜单
 		final Menu tableMenu = new Menu(table);
 		table.setMenu(tableMenu);
 
@@ -205,7 +206,7 @@ public class FtpFilesUpdateCompo extends Composite {
 		delbufMenu.setImage(SWTResourceManager.getImage(FtpFilesUpdateCompo.class, "/cn/imgdpu/ico/delete_layout.gif"));
 		delbufMenu.setText("删除此站缓存");
 
-		//添加到FTP站点
+		// 添加到FTP站点
 		addSiteBtn.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent arg0) {
 				Pattern pattern = Pattern.compile("^ftp://(.*?):(.*?)@([^/]*)/?|^ftp://([^/]*)/?|([^ftp:][^/]*)/?");
@@ -237,7 +238,7 @@ public class FtpFilesUpdateCompo extends Composite {
 			}
 		});
 
-		//删除站点
+		// 删除站点
 		delSiteMenu.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent arg0) {
 				int itemno = table.getSelectionIndex();
@@ -253,7 +254,7 @@ public class FtpFilesUpdateCompo extends Composite {
 			}
 		});
 
-		//删除站点缓存
+		// 删除站点缓存
 		delbufMenu.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent arg0) {
 				int itemno = table.getSelectionIndex();
@@ -267,7 +268,7 @@ public class FtpFilesUpdateCompo extends Composite {
 			}
 		});
 
-		//更新列表
+		// 更新列表
 		updateBtn.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent arg0) {
 				boolean flag = false;
@@ -304,7 +305,7 @@ public class FtpFilesUpdateCompo extends Composite {
 		// Disable the check that prevents subclassing of SWT components
 	}
 
-	//删除文件
+	// 删除文件
 	public boolean deleteFile(String fileName) {
 		File file = new File(fileName);
 		if (file.isFile() && file.exists()) {
@@ -320,7 +321,7 @@ public class FtpFilesUpdateCompo extends Composite {
 		updateBtn.setEnabled(true);
 	}
 
-	//停止线程
+	// 停止线程
 	public static void stopThread() {
 		if (getFtpFileList != null) {
 			getFtpFileList.cancel = true;
@@ -330,7 +331,7 @@ public class FtpFilesUpdateCompo extends Composite {
 		}
 	}
 
-	//保存站点
+	// 保存站点
 	public static void saveSite() {
 		ArrayList<String> siteArr = new ArrayList<String>();
 		for (int i = 0; i < table.getItemCount(); i++) {
@@ -346,7 +347,7 @@ public class FtpFilesUpdateCompo extends Composite {
 		cn.imgdpu.util.SqlProcess.setSiteList("ftp", siteArr);
 	}
 
-	//读取站点
+	// 读取站点
 	public static void readSite() {
 		if (!cn.imgdpu.GSAGUI.shell.isDisposed())
 			cn.imgdpu.GSAGUI.shell.getDisplay().asyncExec(new Runnable() {

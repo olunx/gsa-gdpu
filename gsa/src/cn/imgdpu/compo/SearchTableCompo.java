@@ -148,7 +148,7 @@ public class SearchTableCompo extends Composite {
 	public static void setTableList() {
 
 		ArrayList<String> classNameTable = new XmlProcess().ReadClassXml();
-		
+
 		// 如果表中有数据就清空
 		showTimeTable.removeAll();
 

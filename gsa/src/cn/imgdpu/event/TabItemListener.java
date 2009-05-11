@@ -67,7 +67,7 @@ public class TabItemListener implements Listener {
 				final TyphoonCompo typhoon = new TyphoonCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(typhoon);
 			}
-			
+
 		} else if (selectItem.getText().equals("社团动态")) {
 
 			// 如果还没有创建控件，则添加控件
@@ -75,7 +75,7 @@ public class TabItemListener implements Listener {
 				final NewsUnionCompo unionNews = new NewsUnionCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(unionNews);
 			}
-			
+
 		} else if (selectItem.getText().equals("大学城新闻")) {
 
 			// 如果还没有创建控件，则添加控件
@@ -83,7 +83,7 @@ public class TabItemListener implements Listener {
 				final NewsUcityCompo ucityNews = new NewsUcityCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(ucityNews);
 			}
-			
+
 		} else if (selectItem.getText().equals("中国教育新闻")) {
 
 			// 如果还没有创建控件，则添加控件
@@ -91,7 +91,7 @@ public class TabItemListener implements Listener {
 				final NewsEduCompo eduNews = new NewsEduCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(eduNews);
 			}
-			
+
 		} else if (selectItem.getText().equals("Http搜索")) {
 
 			// 如果还没有创建控件，则添加控件
@@ -99,21 +99,21 @@ public class TabItemListener implements Listener {
 				final HttpFilesCompo httpFile = new HttpFilesCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(httpFile);
 			}
-			
+
 		} else if (selectItem.getText().equals("Ftp搜索")) {
-			
+
 			cn.imgdpu.compo.FtpFilesCompo.setComboUrls();
-			
+
 		} else if (selectItem.getText().equals("内容搜索")) {
-			
+
 			// 如果还没有创建控件，则添加控件
 			if (String.valueOf(selectItem.getControl()) == "null") {
 				SearchTextCompo textSearch = new SearchTextCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(textSearch);
 			}
-			
+
 		} else if (selectItem.getText().equals("Ftp网站列表")) {
-			
+
 			// 如果还没有创建控件，则添加控件
 			if (String.valueOf(selectItem.getControl()) == "null") {
 				final FtpFilesUpdateCompo ftpUpdate = new FtpFilesUpdateCompo(tabFolder, SWT.NONE);
@@ -126,15 +126,15 @@ public class TabItemListener implements Listener {
 				final RssUniverCompo university = new RssUniverCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(university);
 			}
-			
+
 		} else if (selectItem.getText().equals("随便听听(非校园网)")) {
-			
+
 			// 如果还没有创建控件，则添加控件
 			if (String.valueOf(selectItem.getControl()) == "null") {
 				final YigeMusicCompo yigeMusic = new YigeMusicCompo(tabFolder, SWT.NONE);
 				selectItem.setControl(yigeMusic);
 			}
-			
+
 		}
 
 	}

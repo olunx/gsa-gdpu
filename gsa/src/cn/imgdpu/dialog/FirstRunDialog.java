@@ -32,6 +32,7 @@ public class FirstRunDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -41,6 +42,7 @@ public class FirstRunDialog extends Dialog {
 
 	/**
 	 * Create the dialog
+	 * 
 	 * @param parent
 	 */
 	public FirstRunDialog(Shell parent) {
@@ -49,6 +51,7 @@ public class FirstRunDialog extends Dialog {
 
 	/**
 	 * Open the dialog
+	 * 
 	 * @return the result
 	 */
 	public Object open() {
@@ -70,7 +73,7 @@ public class FirstRunDialog extends Dialog {
 		shell = new Shell(getParent(), SWT.APPLICATION_MODAL | SWT.TITLE | SWT.BORDER | SWT.CLOSE);
 		shell.setLayout(new FormLayout());
 		shell.setImage(SWTResourceManager.getImage(FirstRunDialog.class, "/cn/imgdpu/ico/local.gif"));
-		GeneralMethod.getGeneralMethod().setDisLoc(shell , 370 , 427);//设置显示位置
+		GeneralMethod.getGeneralMethod().setDisLoc(shell, 370, 427);// 设置显示位置
 		shell.setSize(370, 427);
 		shell.setText("GSA Welcome");
 
@@ -103,7 +106,7 @@ public class FirstRunDialog extends Dialog {
 		startBut.setLayoutData(fd_startBut);
 		startBut.setText("马上开始");
 		//
-		
+
 		startBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
@@ -112,7 +115,7 @@ public class FirstRunDialog extends Dialog {
 				new OptionDialog(shell).open();
 				shell.dispose();
 			}
-			
+
 		});
 
 		final CLabel label_1 = new CLabel(group, SWT.NONE);

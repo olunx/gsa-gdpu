@@ -27,6 +27,7 @@ public class TyphoonCompo extends Composite {
 
 	/**
 	 * Create the composite
+	 * 
 	 * @param parent
 	 * @param style
 	 */
@@ -42,11 +43,10 @@ public class TyphoonCompo extends Composite {
 		fd_typCompo.top = new FormAttachment(0, 5);
 		fd_typCompo.left = new FormAttachment(0, 5);
 		typCompo.setLayoutData(fd_typCompo);
-		
-        //final FlashPlayer typPlayer = new FlashPlayer(typCompo);
-		final Browser typPlayer = new Browser(typCompo , SWT.None);
-        typPlayer.setVisible(false);
-        
+
+		// final FlashPlayer typPlayer = new FlashPlayer(typCompo);
+		final Browser typPlayer = new Browser(typCompo, SWT.None);
+		typPlayer.setVisible(false);
 
 		final Group warnGroup = new Group(this, SWT.NONE);
 		warnGroup.setLayout(new FillLayout());
@@ -57,8 +57,8 @@ public class TyphoonCompo extends Composite {
 		warnGroup.setLayoutData(fd_warnGroup);
 
 		final Label label = new Label(warnGroup, SWT.WRAP);
-		label.setText("声明：\n    [台风消息]功能的所有数据均来自中央气象台，版权归中央气象台所有。\n\n    [台风消息]的所有数据数据均和中央气象台官方数据同步，无需进行手动的更新。" +
-				"\n\n提示：\n    此功能比较耗费系统资源，在每次查看后均可关闭此功能，下次程序重启时就会还原默认。\n\n    欲浏览更多天气信息，请登陆中央气象台的网站：http://www.weather.com.cn/");
+		label.setText("声明：\n    [台风消息]功能的所有数据均来自中央气象台，版权归中央气象台所有。\n\n    [台风消息]的所有数据数据均和中央气象台官方数据同步，无需进行手动的更新。"
+				+ "\n\n提示：\n    此功能比较耗费系统资源，在每次查看后均可关闭此功能，下次程序重启时就会还原默认。\n\n    欲浏览更多天气信息，请登陆中央气象台的网站：http://www.weather.com.cn/");
 
 		final Button loadBut = new Button(this, SWT.NONE);
 		loadBut.setImage(SWTResourceManager.getImage(TyphoonCompo.class, "/cn/imgdpu/ico/icon.gif"));
@@ -83,36 +83,35 @@ public class TyphoonCompo extends Composite {
 		disBut.setText("关闭");
 
 		//
-        
 
-		//加载flash按钮
+		// 加载flash按钮
 		loadBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
-				//Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
-					typPlayer.setUrl("http://flash.weather.com.cn/typhoon/taifeng.swf");
-					typPlayer.setVisible(true);
-					loadBut.setEnabled(false);
-					disBut.setEnabled(true);
+				// Browser musicPlayer = new Browser(musicCompo , SWT.NONE);
+				typPlayer.setUrl("http://flash.weather.com.cn/typhoon/taifeng.swf");
+				typPlayer.setVisible(true);
+				loadBut.setEnabled(false);
+				disBut.setEnabled(true);
 
 			}
-			
+
 		});
 
-		//销毁flash按钮
+		// 销毁flash按钮
 		disBut.addListener(SWT.Selection, new Listener() {
 
 			@Override
 			public void handleEvent(Event e) {
-				
+
 				typPlayer.setUrl("");
 				typPlayer.setVisible(false);
 				disBut.setEnabled(false);
 				loadBut.setEnabled(true);
-				
+
 			}
-			
+
 		});
 	}
 
