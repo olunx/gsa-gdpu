@@ -49,7 +49,7 @@ public class CetCompo extends Composite {
 		final Group group = new Group(this, SWT.NONE);
 		group.setText("标准查询(99宿舍)");
 		final FormData fd_group = new FormData();
-		fd_group.bottom = new FormAttachment(48, 0);
+		fd_group.bottom = new FormAttachment(0, 210);
 		fd_group.right = new FormAttachment(50, 0);
 		fd_group.left = new FormAttachment(0, 5);
 		group.setLayoutData(fd_group);
@@ -136,6 +136,7 @@ public class CetCompo extends Composite {
 		group_1 = new Group(this, SWT.NONE);
 		group_1.setText("查询结果");
 		final FormData fd_group_1 = new FormData();
+		fd_group_1.top = new FormAttachment(group, 0, SWT.TOP);
 		fd_group_1.right = new FormAttachment(100, -5);
 		fd_group_1.left = new FormAttachment(group, 5, SWT.RIGHT);
 		group_1.setLayoutData(fd_group_1);
@@ -237,8 +238,8 @@ public class CetCompo extends Composite {
 		fd_group_1.bottom = new FormAttachment(group_2, 0, SWT.BOTTOM);
 		group_2.setText("模糊查询");
 		final FormData fd_group_2 = new FormData();
-		fd_group_2.bottom = new FormAttachment(97, 0);
-		fd_group_2.top = new FormAttachment(group, 9, SWT.DEFAULT);
+		fd_group_2.bottom = new FormAttachment(0, 420);
+		fd_group_2.top = new FormAttachment(group, 5, SWT.BOTTOM);
 		fd_group_2.right = new FormAttachment(50, 0);
 		fd_group_2.left = new FormAttachment(group, 0, SWT.LEFT);
 		group_2.setLayoutData(fd_group_2);
@@ -386,11 +387,10 @@ public class CetCompo extends Composite {
 
 		Group group_3;
 		group_3 = new Group(this, SWT.NONE);
-		fd_group_1.top = new FormAttachment(group_3, 9, SWT.DEFAULT);
-		fd_group.top = new FormAttachment(group_3, 9, SWT.DEFAULT);
+		fd_group.top = new FormAttachment(group_3, 5, SWT.BOTTOM);
 		group_3.setText("广东英语四六级查询(www.eesc.com.cn)");
 		final FormData fd_group_3 = new FormData();
-		fd_group_3.bottom = new FormAttachment(20, 0);
+		fd_group_3.bottom = new FormAttachment(0, 90);
 		fd_group_3.right = new FormAttachment(group_1, 0, SWT.RIGHT);
 		fd_group_3.top = new FormAttachment(0, 5);
 		fd_group_3.left = new FormAttachment(group, 0, SWT.LEFT);
