@@ -1,7 +1,7 @@
 /**
  *@author fatkun , 创建时间:2009-4-28
  *
- *This:定时自动更新
+ *This:定时自动更新(testsvn)
  */
 package cn.imgdpu.util;
 
