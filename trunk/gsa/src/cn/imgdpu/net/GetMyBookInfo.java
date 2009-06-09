@@ -144,14 +144,14 @@ class MyBookInfo {
 		}
 
 		pattern = Pattern
-				.compile("续满.*?<td width=\"96\" align=\"center\">&nbsp;(.*?)&nbsp;<td><a href=\"(.*?)\">(.*?)</a>.*?<td width=\"96\" align=\"center\">(.*?)<td width=\"96\" align=\"center\">(.*?)<td width=\"96\" align=\"center\">([^<]*?)");
+				.compile("<td width=\"36\" align=\"center\">.*?<td width=\"96\" align=\"center\">&nbsp;(<font color=\"#ff0000\">)?([\\d\\.]+?)(</font>)?&nbsp;<td><a href=\"(.*?)\">(.*?)</a>.*?<td width=\"96\" align=\"center\">(.*?)<td width=\"96\" align=\"center\">(.*?)<td width=\"96\" align=\"center\">([^<]*?)");
 		matcher = pattern.matcher(s);
 		while (matcher.find()) {
-			info.add(matcher.group(1));// 最迟应还期
-			info.add(matcher.group(2));// 链接"/cgi-win/tcgid.exe?s163299r20"
-			info.add(matcher.group(3));// 题名／著者
-			info.add(matcher.group(4));// 图书类型
-			info.add(matcher.group(5));// 登录号
+			info.add(matcher.group(2));// 最迟应还期
+			info.add(matcher.group(4));// 链接"/cgi-win/tcgid.exe?s163299r20"
+			info.add(matcher.group(5));// 题名／著者
+			info.add(matcher.group(6));// 图书类型
+			info.add(matcher.group(7));// 登录号
 		}
 		if (!matchFlag) {
 			cn.imgdpu.GSAGUI.setStatusAsyn("没有数据");

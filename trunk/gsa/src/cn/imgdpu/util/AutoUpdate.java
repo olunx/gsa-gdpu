@@ -41,9 +41,9 @@ public class AutoUpdate extends Thread {
 		if (cn.imgdpu.util.XmlProcess.isAct("bookact") == 1) {
 			addAutoUpdate(new GetMyBookInfo(), 0, 0);// 借书
 		}
-		addAutoUpdate(new UpdateWeather(), 1, 60 * 30);// 天气
+		addAutoUpdate(new UpdateWeather(), 2, 60 * 30);// 天气
 		addAutoUpdate(new TimerWorker(), 3, 0);// 借书提醒
-		addAutoUpdate(new UpdateCampusNews(), 5, 60 * 60);// 广药新闻
+		addAutoUpdate(new UpdateCampusNews(), 1, 60 * 60);// 广药新闻
 		return this;
 	}
 
