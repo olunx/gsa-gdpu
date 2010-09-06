@@ -33,7 +33,7 @@ public class GetWeather {
 					// "线程中断异常");
 				}
 			}
-			doNowWeather(postDataRun.htmlData);
+//			doNowWeather(postDataRun.htmlData);
 		}
 	}
 
