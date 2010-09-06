@@ -123,7 +123,7 @@ public class NewsUnionCompo extends Composite {
 		listTable.addListener(SWT.MeasureItem, new SwtTableItemHeightListener(listTable));
 
 		// 读取本地数据并显示
-		readRssData();
+//		readRssData();
 
 		// 更新数据按钮
 		updateBut.addListener(SWT.Selection, new Listener() {

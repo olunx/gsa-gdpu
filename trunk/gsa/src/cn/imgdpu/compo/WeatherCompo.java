@@ -354,7 +354,7 @@ public class WeatherCompo extends Composite {
 		tenLabel.setLayoutData(fd_tenLabel);
 		//
 
-		setWeatherText();
+//		setWeatherText();
 
 	}
 

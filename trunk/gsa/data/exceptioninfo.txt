@@ -1,14 +1,9 @@
-time: Sun May 10 00:34:41 CST 2009
-class java.lang.ArrayIndexOutOfBoundsException
-class: java.lang.System	line: -2
-class: org.apache.poi.hwpf.model.StyleDescription	line: 125
-class: org.apache.poi.hwpf.model.StyleSheet	line: 108
-class: org.apache.poi.hwpf.HWPFDocument	line: 262
-class: org.apache.poi.hwpf.HWPFDocument	line: 158
-class: org.apache.poi.hwpf.extractor.WordExtractor	line: 58
-class: org.apache.poi.hwpf.extractor.WordExtractor	line: 50
-class: cn.imgdpu.util.ReadOfficeFiles	line: 63
-class: cn.imgdpu.util.ReadOfficeFiles	line: 35
-class: cn.imgdpu.util.LuneceProcess	line: 55
-class: cn.imgdpu.compo.SearchTextCompo	line: 341
-class: cn.imgdpu.compo.SearchTextCompo$3$1	line: 274
+time: Fri Jun 25 20:08:14 CST 2010
+class org.eclipse.swt.SWTException
+class: org.eclipse.swt.SWT	line: -1
+class: org.eclipse.swt.SWT	line: -1
+class: org.eclipse.swt.widgets.Synchronizer	line: -1
+class: org.eclipse.swt.widgets.Display	line: -1
+class: org.eclipse.swt.widgets.Display	line: -1
+class: cn.imgdpu.GSAGUI	line: 83
+class: cn.imgdpu.GSAGUI	line: 60

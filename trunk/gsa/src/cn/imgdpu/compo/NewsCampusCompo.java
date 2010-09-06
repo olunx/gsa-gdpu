@@ -123,7 +123,7 @@ public class NewsCampusCompo extends Composite {
 		listTable.addListener(SWT.MeasureItem, new SwtTableItemHeightListener(listTable));
 
 		// 读取本地数据并显示
-		readRssData();
+//		readRssData();
 
 		// 更新数据按钮
 		updateBut.addListener(SWT.Selection, new Listener() {
@@ -147,7 +147,7 @@ public class NewsCampusCompo extends Composite {
 		cn.imgdpu.GSAGUI.setStatusAsyn("正在用力读取数据中...~(>_<)~");
 
 		// 更新线程
-		new UpdateCampusNews().start();
+//		new UpdateCampusNews().start();
 	}
 
 	// 读取本地数据并显示
